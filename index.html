@@ -3,7 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Faith School Limited</title>
+  <title>
+ {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, select, textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #1e3a8a;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
@@ -270,5 +292,18 @@
       return false; // prevent actual submission
     }
   </script>
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  emailjs.sendForm("service_ak6hnfz", "template_b9qjb5e", this)
+    .then(function() {
+      alert("Registration successful! Check your email.");
+      document.getElementById("registrationForm").reset();
+    }, function(error) {
+      alert("Failed to send. Check console.");
+      console.log(error);
+    });
+});
+</script>
 </body>
 </html>
