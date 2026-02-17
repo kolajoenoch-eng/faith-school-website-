@@ -177,7 +177,7 @@
     <section id="admissions">
       <h2>Student Registration Form</h2>
       <div class="form-container">
-        <form id="registrationForm" action=https://formspree.io/f/mkovbayw method="POST">
+        <form id="registrationForm" action="mailto:thefaithschoolslimited@gmail.com" method="POST" enctype="text/plain">
           <input type="text" id="fullname" placeholder="Full Name" required>
           <input type="date" id="dob" placeholder="Date of Birth">
           <select id="gender">
@@ -227,7 +227,6 @@
       }
       alert("Registration successful! Thank you for registering.");
       document.getElementById('registrationForm').reset();
-      return false; // only block if validatin fails
     }
   </script>
 </body>
