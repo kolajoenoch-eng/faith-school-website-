@@ -175,30 +175,59 @@
 
     <!-- Admissions / Registration Form -->
     <section id="admissions">
-      <h2>Student Registration Form</h2>
-      <div class="form-container">
-        <form id="registrationForm" action="https://formspree.io/f/your_form_id" method="POST">
-          <input type="text" id="fullname" placeholder="Full Name" required>
-          <input type="date" id="dob" placeholder="Date of Birth">
-          <select id="gender">
-            <option value="">Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-          <select id="classApplying">
-            <option value="">Class Applying For</option>
-            <option value="Nursery">Nursery</option>
-            <option value="Primary">Primary</option>
-            <option value="Secondary">Secondary</option>
-          </select>
-          <input type="text" id="parentName" placeholder="Parent/Guardian Name">
-          <input type="email" id="email" placeholder="Email Address">
-          <input type="tel" id="phone" placeholder="Phone Number">
-          <textarea id="address" placeholder="Address"></textarea>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </section>
+  <h2>Student Registration Form</h2>
+
+  <!-- New EmailJS form -->
+  <form id="registrationForm">
+    <input type="text" name="fullName" placeholder="Full Name" required>
+    <input type="date" name="dob" placeholder="Date of Birth" required>
+    <select name="gender" required>
+      <option value="">Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <select name="classApplying" required>
+      <option value="">Class Applying For</option>
+      <option value="Nursery">Nursery</option>
+      <option value="Primary">Primary</option>
+      <option value="Secondary">Secondary</option>
+    </select>
+    <input type="text" name="parentName" placeholder="Parent / Guardian Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <textarea name="address" placeholder="Address" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- New EmailJS script for this form -->
+  <script>
+    const form = document.getElementById('registrationForm');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default submission
+
+      emailjs.send(
+        "service_ak6hnfz",       // Your Service ID
+        "template_b9qjb5e",      // Your Template ID
+        {
+          fullName: form.fullName.value,
+          dob: form.dob.value,
+          gender: form.gender.value,
+          classApplying: form.classApplying.value,
+          parentName: form.parentName.value,
+          email: form.email.value,
+          phone: form.phone.value,
+          address: form.address.value
+        }
+      ).then(function(response) {
+        alert('Registration successful! Thank you.');
+        form.reset(); // Clear the form
+      }, function(error) {
+        alert('Failed to send form: ' + JSON.stringify(error));
+      });
+    });
+  </script>
+</section>
 
     <!-- Contact -->
     <section id="contact">
