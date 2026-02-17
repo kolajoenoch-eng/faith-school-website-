@@ -162,7 +162,7 @@
     <!-- About -->
     <section id="about">
       <h2>About Us</h2>
-      <p>The Faith School Limited is dedicated to providing quality  education for children of all ages. Our mission is to develop academic excellence and strong moral character.</p>
+      <p>The Faith School Limited is dedicated to providing quality Christian education for children of all ages. Our mission is to develop academic excellence and strong moral character.</p>
       <p><strong>Mission:</strong> To nurture students to reach their full potential in a safe, faith-filled environment.</p>
       <p><strong>Vision:</strong> To be a leading educational institution recognized for academic excellence and moral values.</p>
     </section>
@@ -177,7 +177,7 @@
     <section id="admissions">
       <h2>Student Registration Form</h2>
       <div class="form-container">
-        <form id="registrationForm" action="mailto:thefaithschoolslimited@gmail.com" method="POST" enctype="text/plain">
+        <form id="registrationForm" action="https://formspree.io/f/your_form_id" method="POST">
           <input type="text" id="fullname" placeholder="Full Name" required>
           <input type="date" id="dob" placeholder="Date of Birth">
           <select id="gender">
@@ -227,6 +227,7 @@
       }
       alert("Registration successful! Thank you for registering.");
       document.getElementById('registrationForm').reset();
+      return false; // prevent actual submission
     }
   </script>
 </body>
